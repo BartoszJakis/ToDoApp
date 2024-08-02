@@ -1,46 +1,50 @@
-import { useState} from 'react'
+import { useState, ChangeEvent } from 'react'
+
 import './App.css'
-import {Todo} from './Todo';
-import { TodoItem} from './types';
+import { ITodo } from './types'
+import { Todos } from './Todo'
 
 function App() {
-const [todos, setTodos] = useState<TodoItem[]>([]);
-const [input, setInput] = useState('');
+  const [todos, setTodos] = useState<ITodo[]>([])
+  const [input, setInput] = useState('')
 
 
-const addTodo = (text: string) => {
-    const newTodo: TodoItem = {
-        id: Date.now(),
-        text,
-        isCompleted: false,
-
-    };
-    setTodos([...todos, newTodo]);
+  
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+setInput(e.target.value)
 }
 
-const toggleTodo= (id: number) => {
-    const newTodos = todos.map(todo => {
-        if (todo.id === id) {
-            return {...todo,isCompleted: !todo.isCompleted };
-        }
-        return todo;
-    });
-    setTodos(newTodos);
+const addTask = (): void => {
+  const newTodo = {text: input, completed: false, id: todos.length};
+setTodos([...todos, newTodo ]);
 };
-return <main>
-    <h2>my TODO List</h2>
-    <input
-    type= "text"
-    value={input}
-    onChange={e => setInput(e.target.value)}/>
-    <button onClick={() => addTodo (input)}>add</button>
-    <ul>
-        {todos.map(todo => (
-            <Todo key = {todo.id} todo={todo} toggleTodo={toggleTodo} />
-        ))}
-    </ul>
-</main>
 
+const deleteTask = (id: number): void => {
+  setTodos(todos.filter((todo: ITodo) => todo.id !== id));
+}
+
+
+  return (
+  <div className="App">
+    <div className="header">
+      <input type="text" placeholder="Add a todo" onChange ={handleChange}  />
+      <button  onClick={addTask}>Add</button>
+    </div>
+    <div className="toDoList">
+   
+      {todos.map((todos : ITodo, key : number ) =>
+      {
+        return <Todos key ={key} todos={todos}  deleteTodo={deleteTask} />
+
+      })}
+      
+      </div>
+
+
+
+
+
+  </div>)
 }
 
 export default App;

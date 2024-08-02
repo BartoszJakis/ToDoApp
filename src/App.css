@@ -1,11 +1,85 @@
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+  background-color: #793838;
+ 
+}
+
+.header{
+  margin-top: 10%;
+  display: flex;
+   flex-direction:row;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   
+
+}
 main button {
   padding: 5px;
-  margin-left: 1em;
-  margin-top: 2em;
+  margin-left: 10em;
+  margin-top: 12em;
 
 }
 
 
 main input {
-  line-height: 2;
+  display: block;
+  line-height: 12;
+  margin-right: 5%;
+  margin-bottom: 1em;
+margin-top: 1em;
+margin-left: 10em;
+}
+
+.toDoList
+{
+  
+ flex:auto;
+  width:100% ;
+  height: 100%;
+  background-color:salmon;
+  border-radius: 2%;
+}
+.todo {
+  display:flexbox;
+  flex-direction: row;
+align-items: center;
+  justify-content:flex-end;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-style: solid;
+  border-color: rgb(17, 12, 5);
+  border-width: 5px;
+  margin-top: 5%;
+  box-shadow: inset 0 0 10px #7c4040;
+  border-radius: 10px;
+}
+.toDoList div
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.toDoList button
+{
+  display: flex;
+  
+
+  
+    margin-right: 5%;
+    margin-bottom: 1em;
+  margin-top: 1em;
+  margin-left: 10em;
+  border: 1px solid #73AD21;
+  padding: 2px;
+  
 }
