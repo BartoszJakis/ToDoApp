@@ -66,10 +66,10 @@ align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 5%;
+  margin:10%
 }
 
-.toDoList button
+.Todos button
 {
   display: flex;
   

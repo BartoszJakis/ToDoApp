@@ -23,6 +23,16 @@ const deleteTask = (id: number): void => {
   setTodos(todos.filter((todo: ITodo) => todo.id !== id));
 }
 
+const editTask = (id: number, newText: string): void => {
+  setTodos(
+    todos.map((todo: ITodo) => {
+      if (todo.id === id) {
+        return { ...todo, text: newText };
+      }
+      return todo;
+    })
+  );
+};
 
   return (
   <div className="App">
@@ -34,7 +44,7 @@ const deleteTask = (id: number): void => {
    
       {todos.map((todos : ITodo, key : number ) =>
       {
-        return <Todos key ={key} todos={todos}  deleteTodo={deleteTask} />
+        return <Todos key ={key} todos={todos}  deleteTodo={deleteTask} editTodo={editTask} />
 
       })}
       
